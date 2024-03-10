@@ -1,0 +1,14 @@
+py4j>=0.10.9.7
+pytest
+pytest-html
+sphinx
+sphinx-rtd-theme
+requests
+jprops
+docutils
+cloudpickle
+typer
+python-dotenv
+wheel
+setuptools
+twine

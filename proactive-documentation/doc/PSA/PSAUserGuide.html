@@ -1,0 +1,3105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="description" content="ProActive Parallel Suite is an innovative Open Source solution (OW2) for acceleration and orchestration of applications, seamlessly integrated with the management of high-performance Clouds (Private and Public with bursting capabilities). ProActive platform features High-Performance Workflows and Application Parallelization, together with enterprise Scheduling and Orchestration coupled with the dynamic management of private Heterogeneous Grids and Clouds. With a ProActive platform, our users tackle at once the acceleration and orchestration of all demanding enterprise applications, and the management of their own Enterprise Cloud.">
+<meta name="keywords" content="proactive, activeeon, documentation, manual, help, doc">
+<meta name="author" content="The Activeeon team">
+<title>ProActive Service Automation (PSA)</title>
+<style>
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+/* ========================================================================== HTML5 display definitions ========================================================================== */
+/** Correct `block` display not defined in IE 8/9. */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+
+/** Correct `inline-block` display not defined in IE 8/9. */
+audio, canvas, video { display: inline-block; }
+
+/** Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices. */
+audio:not([controls]) { display: none; height: 0; }
+
+/** Address `[hidden]` styling not present in IE 8/9. Hide the `template` element in IE, Safari, and Firefox < 22. */
+[hidden], template { display: none; }
+
+script { display: none !important; }
+
+/* ========================================================================== Base ========================================================================== */
+/** 1. Set default font family to sans-serif. 2. Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+html { font-family: sans-serif; /* 1 */ -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ }
+
+/** Remove default margin. */
+body { margin: 0; }
+
+/* ========================================================================== Links ========================================================================== */
+/** Remove the gray background color from active links in IE 10. */
+a { background: transparent; }
+
+/** Address `outline` inconsistency between Chrome and other browsers. */
+a:focus { outline: thin dotted; }
+
+/** Improve readability when focused and also mouse hovered in all browsers. */
+a:active, a:hover { outline: 0; }
+
+/* ========================================================================== Typography ========================================================================== */
+/** Address variable `h1` font-size and margin within `section` and `article` contexts in Firefox 4+, Safari 5, and Chrome. */
+h1 { font-size: 2em; margin: 0.67em 0; }
+
+/** Address styling not present in IE 8/9, Safari 5, and Chrome. */
+abbr[title] { border-bottom: 1px dotted; }
+
+/** Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
+b, strong { font-weight: bold; }
+
+/** Address styling not present in Safari 5 and Chrome. */
+dfn { font-style: italic; }
+
+/** Address differences between Firefox and other browsers. */
+hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+
+/** Address styling not present in IE 8/9. */
+mark { background: #ff0; color: #000; }
+
+/** Correct font family set oddly in Safari 5 and Chrome. */
+code, kbd, pre, samp { font-family: monospace, serif; font-size: 1em; }
+
+/** Improve readability of pre-formatted text in all browsers. */
+pre { white-space: pre-wrap; }
+
+/** Set consistent quote types. */
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/** Address inconsistent and variable font size in all browsers. */
+small { font-size: 80%; }
+
+/** Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+/* ========================================================================== Embedded content ========================================================================== */
+/** Remove border when inside `a` element in IE 8/9. */
+img { border: 0; }
+
+/** Correct overflow displayed oddly in IE 9. */
+svg:not(:root) { overflow: hidden; }
+
+/* ========================================================================== Figures ========================================================================== */
+/** Address margin not present in IE 8/9 and Safari 5. */
+figure { margin: 0; }
+
+/* ========================================================================== Forms ========================================================================== */
+/** Define consistent border, margin, and padding. */
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+
+/** 1. Correct `color` not being inherited in IE 8/9. 2. Remove padding so people aren't caught out if they zero out fieldsets. */
+legend { border: 0; /* 1 */ padding: 0; /* 2 */ }
+
+/** 1. Correct font family not being inherited in all browsers. 2. Correct font size not being inherited in all browsers. 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome. */
+button, input, select, textarea { font-family: inherit; /* 1 */ font-size: 100%; /* 2 */ margin: 0; /* 3 */ }
+
+/** Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+button, input { line-height: normal; }
+
+/** Address inconsistent `text-transform` inheritance for `button` and `select`. All other form control elements do not inherit `text-transform` values. Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+. Correct `select` style inheritance in Firefox 4+ and Opera. */
+button, select { text-transform: none; }
+
+/** 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. 2. Correct inability to style clickable `input` types in iOS. 3. Improve usability and consistency of cursor style between image-type `input` and others. */
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; /* 2 */ cursor: pointer; /* 3 */ }
+
+/** Re-set default cursor for disabled elements. */
+button[disabled], html input[disabled] { cursor: default; }
+
+/** 1. Address box sizing set to `content-box` in IE 8/9. 2. Remove excess padding in IE 8/9. */
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ }
+
+/** 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome. 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome (include `-moz` to future-proof). */
+input[type="search"] { -webkit-appearance: textfield; /* 1 */ -moz-box-sizing: content-box; -webkit-box-sizing: content-box; /* 2 */ box-sizing: content-box; }
+
+/** Remove inner padding and search cancel button in Safari 5 and Chrome on OS X. */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/** Remove inner padding and border in Firefox 4+. */
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/** 1. Remove default vertical scrollbar in IE 8/9. 2. Improve readability and alignment in all browsers. */
+textarea { overflow: auto; /* 1 */ vertical-align: top; /* 2 */ }
+
+/* ========================================================================== Tables ========================================================================== */
+/** Remove most spacing between table cells. */
+table { border-collapse: collapse; border-spacing: 0; }
+
+meta.foundation-mq-small { font-family: "only screen and (min-width: 768px)"; width: 768px; }
+
+meta.foundation-mq-medium { font-family: "only screen and (min-width:1280px)"; width: 1280px; }
+
+meta.foundation-mq-large { font-family: "only screen and (min-width:1440px)"; width: 1440px; }
+
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html, body { font-size: 100%; }
+
+body { background: white; color: #222222; padding: 0; margin: 0; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; line-height: 1; position: relative; cursor: auto; }
+
+a:hover { cursor: pointer; }
+
+img, object, embed { max-width: 100%; height: auto; }
+
+object, embed { height: 100%; }
+
+img { -ms-interpolation-mode: bicubic; }
+
+#map_canvas img, #map_canvas embed, #map_canvas object, .map_canvas img, .map_canvas embed, .map_canvas object { max-width: none !important; }
+
+.left { float: left !important; }
+
+.right { float: right !important; }
+
+.text-left { text-align: left !important; }
+
+.text-right { text-align: right !important; }
+
+.text-center { text-align: center !important; }
+
+.text-justify { text-align: justify !important; }
+
+.hide { display: none; }
+
+.antialiased, body { -webkit-font-smoothing: antialiased; }
+
+img { display: inline-block; vertical-align: middle; }
+
+textarea { height: auto; min-height: 50px; }
+
+select { width: 100%; }
+
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1.21875em; line-height: 1.6; }
+
+.subheader, .admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title { line-height: 1.4; color: #4d70cf; font-weight: 300; margin-top: 0.2em; margin-bottom: 0.5em; }
+
+/* Typography resets */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; padding: 0; direction: ltr; }
+
+/* Default Link Styles */
+a { color: #e87224; text-decoration: none; line-height: inherit; }
+a:hover, a:focus { color: #db6517; }
+a img { border: none; }
+
+/* Default paragraph styles */
+p { font-family: inherit; font-weight: normal; font-size: 1em; line-height: 1.6; margin-bottom: 1.25em; text-rendering: optimizeLegibility; }
+p aside { font-size: 0.875em; line-height: 1.35; font-style: italic; }
+
+/* Default header styles */
+h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #1c3067; text-rendering: optimizeLegibility; margin-top: 0.2em; margin-bottom: 0.5em; line-height: 1.2125em; }
+h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title small, h4 small, h5 small, h6 small { font-size: 60%; color: #4d70cf; line-height: 0; }
+
+h1 { font-size: 2.125em; }
+
+h2 { font-size: 1.6875em; }
+
+h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.375em; }
+
+h4 { font-size: 1.125em; }
+
+h5 { font-size: 1.125em; }
+
+h6 { font-size: 1em; }
+
+hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 1.25em 0 1.1875em; height: 0; }
+
+/* Helpful Typography Defaults */
+em, i { font-style: italic; line-height: inherit; }
+
+strong, b { font-weight: bold; line-height: inherit; }
+
+small { font-size: 60%; line-height: inherit; }
+
+code { font-family: Consolas, "Liberation Mono", Courier, monospace; font-weight: bold; color: #4d70cf; }
+
+/* Lists */
+ul, ol, dl { font-size: 1em; line-height: 1.6; margin-bottom: 1.25em; list-style-position: outside; font-family: inherit; }
+
+ul, ol { margin-left: 1.5em; }
+ul.no-bullet, ol.no-bullet { margin-left: 1.5em; }
+
+/* Unordered Lists */
+ul li ul, ul li ol { margin-left: 1.25em; margin-bottom: 0; font-size: 1em; /* Override nested font-size change */ }
+ul.square li ul, ul.circle li ul, ul.disc li ul { list-style: inherit; }
+ul.square { list-style-type: square; }
+ul.circle { list-style-type: circle; }
+ul.disc { list-style-type: disc; }
+ul.no-bullet { list-style: none; }
+
+/* Ordered Lists */
+ol li ul, ol li ol { margin-left: 1.25em; margin-bottom: 0; }
+
+/* Definition Lists */
+dl dt { margin-bottom: 0.3125em; font-weight: bold; }
+dl dd { margin-bottom: 1.25em; }
+
+/* Abbreviations */
+abbr, acronym { text-transform: uppercase; font-size: 90%; color: #222222; border-bottom: 1px dotted #dddddd; cursor: help; }
+
+abbr { text-transform: none; }
+
+/* Blockquotes */
+blockquote { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #dddddd; }
+blockquote cite { display: block; font-size: 0.8125em; color: #4d70cf; }
+blockquote cite:before { content: "\2014 \0020"; }
+blockquote cite a, blockquote cite a:visited { color: #4d70cf; }
+
+blockquote, blockquote p { line-height: 1.6; color: #4d70cf; }
+
+/* Microformats */
+.vcard { display: inline-block; margin: 0 0 1.25em 0; border: 1px solid #dddddd; padding: 0.625em 0.75em; }
+.vcard li { margin: 0; display: block; }
+.vcard .fn { font-weight: bold; font-size: 0.9375em; }
+
+.vevent .summary { font-weight: bold; }
+.vevent abbr { cursor: auto; text-decoration: none; font-weight: bold; border: none; padding: 0 0.0625em; }
+
+@media only screen and (min-width: 768px) { h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4; }
+  h1 { font-size: 2.75em; }
+  h2 { font-size: 2.3125em; }
+  h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.6875em; }
+  h4 { font-size: 1.4375em; } }
+/* Tables */
+table { background: white; margin-bottom: 1.25em; border: solid 1px #dddddd; }
+table thead, table tfoot { background: whitesmoke; font-weight: bold; }
+table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td { padding: 0.5em 0.625em 0.625em; font-size: 0.875em; color: #222222; text-align: left; }
+table tr th, table tr td { padding: 0.5625em 0.625em; font-size: 0.875em; color: #222222; }
+table tr.even, table tr.alt, table tr:nth-of-type(even) { background: #f9f9f9; }
+table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td { display: table-cell; line-height: 1.125em; }
+
+h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4; }
+
+.clearfix:before, .clearfix:after, .float-group:before, .float-group:after { content: " "; display: table; }
+.clearfix:after, .float-group:after { clear: both; }
+
+*:not(pre) > code { font-size: inherit; font-style: normal !important; letter-spacing: 0; padding: 0; line-height: inherit; }
+
+pre, pre > code { line-height: 1.6; color: inherit; font-family: Consolas, "Liberation Mono", Courier, monospace; font-weight: normal; }
+
+.keyseq { color: #555555; }
+
+kbd { display: inline-block; color: #222222; font-size: 0.75em; line-height: 1.4; background-color: #f7f7f7; border: 1px solid #ccc; -webkit-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.1em white inset; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.1em white inset; margin: -0.15em 0.15em 0 0.15em; padding: 0.2em 0.6em 0.2em 0.5em; vertical-align: middle; white-space: nowrap; }
+
+.keyseq kbd:first-child { margin-left: 0; }
+
+.keyseq kbd:last-child { margin-right: 0; }
+
+.menuseq, .menu { color: #090909; }
+
+b.button:before, b.button:after { position: relative; top: -1px; font-weight: normal; }
+
+b.button:before { content: "["; padding: 0 3px 0 2px; }
+
+b.button:after { content: "]"; padding: 0 2px 0 3px; }
+
+#header, #content, #footnotes, #footer { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 62.5em; *zoom: 1; position: relative; padding-left: 0.9375em; padding-right: 0.9375em; }
+#header:before, #header:after, #content:before, #content:after, #footnotes:before, #footnotes:after, #footer:before, #footer:after { content: " "; display: table; }
+#header:after, #content:after, #footnotes:after, #footer:after { clear: both; }
+
+#content { margin-top: 1.25em; }
+
+#content:before { content: none; }
+
+#header > h1:first-child { color: #1c3067; margin-top: 2.25rem; margin-bottom: 0; }
+#header > h1:first-child + #toc { margin-top: 8px; border-top: 1px solid #dddddd; }
+#header > h1:only-child, body.toc2 #header > h1:nth-last-child(2) { border-bottom: 1px solid #dddddd; padding-bottom: 8px; }
+#header .details { border-bottom: 1px solid #dddddd; line-height: 1.45; padding-top: 0.25em; padding-bottom: 0.25em; padding-left: 0.25em; color: #4d70cf; display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-flow: row wrap; -webkit-flex-flow: row wrap; flex-flow: row wrap; }
+#header .details span:first-child { margin-left: -0.125em; }
+#header .details span.email a { color: #4d70cf; }
+#header .details br { display: none; }
+#header .details br + span:before { content: "\00a0\2013\00a0"; }
+#header .details br + span.author:before { content: "\00a0\22c5\00a0"; color: #4d70cf; }
+#header .details br + span#revremark:before { content: "\00a0|\00a0"; }
+#header #revnumber { text-transform: capitalize; }
+#header #revnumber:after { content: "\00a0"; }
+
+#content > h1:first-child:not([class]) { color: #1c3067; border-bottom: 1px solid #dddddd; padding-bottom: 8px; margin-top: 0; padding-top: 1rem; margin-bottom: 1.25rem; }
+
+#toc { border-bottom: 1px solid #dddddd; padding-bottom: 0.5em; }
+/* we hide the toc content as it will be overwritten by tocbot javascript library */
+#toc > ul { margin-left: 0.125em; visibility: hidden; }
+#toc ul.sectlevel0 > li > a { font-style: italic; }
+#toc ul.sectlevel0 ul.sectlevel1 { margin: 0.5em 0; }
+#toc ul { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; list-style-type: none; }
+#toc a { text-decoration: none; }
+#toc a:active { text-decoration: underline; }
+
+#toctitle { color: #4d70cf; font-size: 1.2em; }
+
+@media only screen and (min-width: 768px) { #toctitle { font-size: 1.375em; }
+  body.toc2 { padding-left: 15em; padding-right: 0; }
+  #toc.toc2 { margin-top: 0 !important; background-color: #f2f2f2; position: fixed; width: 15em; left: 0; top: 0; border-right: 1px solid #dddddd; border-top-width: 0 !important; border-bottom-width: 0 !important; z-index: 1000; padding: 1.25em 1em; height: 100%; overflow: auto; }
+  #toc.toc2 #toctitle { margin-top: 0; font-size: 1.2em; }
+  #toc.toc2 > ul { font-size: 0.9em; margin-bottom: 0; }
+  #toc.toc2 ul ul { margin-left: 0; padding-left: 1em; }
+  #toc.toc2 ul.sectlevel0 ul.sectlevel1 { padding-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+  body.toc2.toc-right { padding-left: 0; padding-right: 15em; }
+  body.toc2.toc-right #toc.toc2 { border-right-width: 0; border-left: 1px solid #dddddd; left: auto; right: 0; } }
+@media only screen and (min-width: 1280px) { body.toc2 { padding-left: 20em; padding-right: 0; }
+  #toc.toc2 { width: 20em; }
+  #toc.toc2 #toctitle { font-size: 1.375em; }
+  #toc.toc2 > ul { font-size: 0.95em; }
+  #toc.toc2 ul ul { padding-left: 1.25em; }
+  body.toc2.toc-right { padding-left: 0; padding-right: 20em; } }
+#content #toc { border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #f2f2f2; -webkit-border-radius: 3px; border-radius: 3px; }
+#content #toc > :first-child { margin-top: 0; }
+#content #toc > :last-child { margin-bottom: 0; }
+
+#footer { max-width: 100%; background-color: #222222; padding: 1.25em; }
+
+#footer-text { color: #dddddd; line-height: 1.44; }
+
+.sect1 { padding-bottom: 0.625em; }
+
+@media only screen and (min-width: 768px) { .sect1 { padding-bottom: 1.25em; } }
+.sect1 + .sect1 { border-top: 1px solid #dddddd; }
+
+#content h1 > a.anchor, h2 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { position: absolute; z-index: 1001; width: 1.5ex; margin-left: -1.5ex; display: block; text-decoration: none !important; visibility: hidden; text-align: center; font-weight: normal; }
+#content h1 > a.anchor:before, h2 > a.anchor:before, h3 > a.anchor:before, #toctitle > a.anchor:before, .sidebarblock > .content > .title > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before { content: "\00A7"; font-size: 0.85em; display: block; padding-top: 0.1em; }
+#content h1:hover > a.anchor, #content h1 > a.anchor:hover, h2:hover > a.anchor, h2 > a.anchor:hover, h3:hover > a.anchor, #toctitle:hover > a.anchor, .sidebarblock > .content > .title:hover > a.anchor, h3 > a.anchor:hover, #toctitle > a.anchor:hover, .sidebarblock > .content > .title > a.anchor:hover, h4:hover > a.anchor, h4 > a.anchor:hover, h5:hover > a.anchor, h5 > a.anchor:hover, h6:hover > a.anchor, h6 > a.anchor:hover { visibility: visible; }
+#content h1 > a.link, h2 > a.link, h3 > a.link, #toctitle > a.link, .sidebarblock > .content > .title > a.link, h4 > a.link, h5 > a.link, h6 > a.link { color: #1c3067; text-decoration: none; }
+#content h1 > a.link:hover, h2 > a.link:hover, h3 > a.link:hover, #toctitle > a.link:hover, .sidebarblock > .content > .title > a.link:hover, h4 > a.link:hover, h5 > a.link:hover, h6 > a.link:hover { color: #172753; }
+
+.audioblock, .imageblock, .literalblock, .listingblock, .stemblock, .videoblock { margin-bottom: 1.25em; }
+
+.admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title { text-rendering: optimizeLegibility; text-align: left; }
+
+.imageblock > .title { text-align: inherit; }
+
+table.tableblock > caption.title { white-space: nowrap; overflow: visible; max-width: 0; }
+
+.paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { color: #1c3067; }
+
+table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-size: inherit; }
+
+.admonitionblock > table { border-collapse: separate; border: 0; background: none; width: 100%; }
+.admonitionblock > table td.icon { text-align: center; width: 80px; }
+.admonitionblock > table td.icon img { max-width: none; }
+.admonitionblock > table td.icon .title { font-weight: bold; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; text-transform: uppercase; }
+.admonitionblock > table td.content { padding-left: 1.125em; padding-right: 1.25em; border-left: 1px solid #dddddd; color: #4d70cf; }
+.admonitionblock > table td.content > :last-child > :last-child { margin-bottom: 0; }
+
+.exampleblock > .content { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.25em; padding: 1.25em; background: white; -webkit-border-radius: 3px; border-radius: 3px; }
+.exampleblock > .content > :first-child { margin-top: 0; }
+.exampleblock > .content > :last-child { margin-bottom: 0; }
+
+.sidebarblock { border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #f2f2f2; -webkit-border-radius: 3px; border-radius: 3px; }
+.sidebarblock > :first-child { margin-top: 0; }
+.sidebarblock > :last-child { margin-bottom: 0; }
+.sidebarblock > .content > .title { color: #4d70cf; margin-top: 0; }
+
+.exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child, .sidebarblock > .content > :last-child > :last-child, .sidebarblock > .content .olist > ol > li:last-child > :last-child, .sidebarblock > .content .ulist > ul > li:last-child > :last-child, .sidebarblock > .content .qlist > ol > li:last-child > :last-child { margin-bottom: 0; }
+
+.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint { background: none; }
+.sidebarblock .literalblock pre, .sidebarblock .listingblock pre:not(.highlight), .sidebarblock .listingblock pre[class="highlight"], .sidebarblock .listingblock pre[class^="highlight "], .sidebarblock .listingblock pre.CodeRay, .sidebarblock .listingblock pre.prettyprint { background: #f2f1f1; }
+
+.literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class] { border: 1px solid #dddddd; -webkit-border-radius: 3px; border-radius: 3px; word-wrap: break-word; padding: 0.75em; font-size: 0.8125em; }
+.literalblock pre.nowrap, .literalblock pre[class].nowrap, .listingblock pre.nowrap, .listingblock pre[class].nowrap { overflow-x: auto; white-space: pre; word-wrap: normal; }
+@media only screen and (min-width: 768px) { .literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class] { font-size: 0.90625em; } }
+@media only screen and (min-width: 1280px) { .literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class] { font-size: 1em; } }
+
+.literalblock.output pre { color: none; background-color: inherit; }
+
+.listingblock pre.highlightjs { padding: 0; }
+.listingblock pre.highlightjs > code { padding: 0.75em; -webkit-border-radius: 3px; border-radius: 3px; }
+
+.listingblock > .content { position: relative; }
+
+.listingblock code[data-lang]:before { display: none; content: attr(data-lang); position: absolute; font-size: 0.75em; top: 0.425rem; right: 0.5rem; line-height: 1; text-transform: uppercase; color: #999; }
+
+.listingblock:hover code[data-lang]:before { display: block; }
+
+.listingblock.terminal pre .command:before { content: attr(data-prompt); padding-right: 0.5em; color: #999; }
+
+.listingblock.terminal pre .command:not([data-prompt]):before { content: "$"; }
+
+table.pyhltable { border-collapse: separate; border: 0; margin-bottom: 0; background: none; }
+
+table.pyhltable td { vertical-align: top; padding-top: 0; padding-bottom: 0; }
+
+table.pyhltable td.code { padding-left: .75em; padding-right: 0; }
+
+pre.pygments .lineno, table.pyhltable td:not(.code) { color: #999; padding-left: 0; padding-right: .5em; border-right: 1px solid #dddddd; }
+
+pre.pygments .lineno { display: inline-block; margin-right: .25em; }
+
+table.pyhltable .linenodiv { background: none !important; padding-right: 0 !important; }
+
+.quoteblock { margin: 0 1em 1.25em 1.5em; display: table; }
+.quoteblock > .title { margin-left: -1.5em; margin-bottom: 0.75em; }
+.quoteblock blockquote, .quoteblock blockquote p { color: #4d70cf; font-size: 1.15rem; line-height: 1.75; word-spacing: 0.1em; letter-spacing: 0; font-style: italic; text-align: justify; }
+.quoteblock blockquote { margin: 0; padding: 0; border: 0; }
+.quoteblock blockquote:before { content: "\201c"; float: left; font-size: 2.75em; font-weight: bold; line-height: 0.6em; margin-left: -0.6em; color: #4d70cf; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+.quoteblock blockquote > .paragraph:last-child p { margin-bottom: 0; }
+.quoteblock .attribution { margin-top: 0.5em; margin-right: 0.5ex; text-align: right; }
+.quoteblock .quoteblock { margin-left: 0; margin-right: 0; padding: 0.5em 0; border-left: 3px solid #4d70cf; }
+.quoteblock .quoteblock blockquote { padding: 0 0 0 0.75em; }
+.quoteblock .quoteblock blockquote:before { display: none; }
+
+.verseblock { margin: 0 1em 1.25em 1em; }
+.verseblock pre { font-family: "Open Sans", "DejaVu Sans", sans; font-size: 1.15rem; color: #4d70cf; font-weight: 300; text-rendering: optimizeLegibility; }
+.verseblock pre strong { font-weight: 400; }
+.verseblock .attribution { margin-top: 1.25rem; margin-left: 0.5ex; }
+
+.quoteblock .attribution, .verseblock .attribution { font-size: 0.8125em; line-height: 1.45; font-style: italic; }
+.quoteblock .attribution br, .verseblock .attribution br { display: none; }
+.quoteblock .attribution cite, .verseblock .attribution cite { display: block; letter-spacing: -0.05em; color: #4d70cf; }
+
+.quoteblock.abstract { margin: 0 0 1.25em 0; display: block; }
+.quoteblock.abstract blockquote, .quoteblock.abstract blockquote p { text-align: left; word-spacing: 0; }
+.quoteblock.abstract blockquote:before, .quoteblock.abstract blockquote p:first-of-type:before { display: none; }
+
+table.tableblock { max-width: 100%; border-collapse: separate; }
+table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child { margin-bottom: 0; }
+
+table.spread { width: 100%; }
+
+table.tableblock, th.tableblock, td.tableblock { border: 0 solid #dddddd; }
+
+table.grid-all th.tableblock, table.grid-all td.tableblock { border-width: 0 1px 1px 0; }
+
+table.grid-all tfoot > tr > th.tableblock, table.grid-all tfoot > tr > td.tableblock { border-width: 1px 1px 0 0; }
+
+table.grid-cols th.tableblock, table.grid-cols td.tableblock { border-width: 0 1px 0 0; }
+
+table.grid-all * > tr > .tableblock:last-child, table.grid-cols * > tr > .tableblock:last-child { border-right-width: 0; }
+
+table.grid-rows th.tableblock, table.grid-rows td.tableblock { border-width: 0 0 1px 0; }
+
+table.grid-all tbody > tr:last-child > th.tableblock, table.grid-all tbody > tr:last-child > td.tableblock, table.grid-all thead:last-child > tr > th.tableblock, table.grid-rows tbody > tr:last-child > th.tableblock, table.grid-rows tbody > tr:last-child > td.tableblock, table.grid-rows thead:last-child > tr > th.tableblock { border-bottom-width: 0; }
+
+table.grid-rows tfoot > tr > th.tableblock, table.grid-rows tfoot > tr > td.tableblock { border-width: 1px 0 0 0; }
+
+table.frame-all { border-width: 1px; }
+
+table.frame-sides { border-width: 0 1px; }
+
+table.frame-topbot { border-width: 1px 0; }
+
+th.halign-left, td.halign-left { text-align: left; }
+
+th.halign-right, td.halign-right { text-align: right; }
+
+th.halign-center, td.halign-center { text-align: center; }
+
+th.valign-top, td.valign-top { vertical-align: top; }
+
+th.valign-bottom, td.valign-bottom { vertical-align: bottom; }
+
+th.valign-middle, td.valign-middle { vertical-align: middle; }
+
+table thead th, table tfoot th { font-weight: bold; }
+
+tbody tr th { display: table-cell; line-height: 1.125em; background: whitesmoke; }
+
+tbody tr th, tbody tr th p, tfoot tr th, tfoot tr th p { color: #222222; font-weight: bold; }
+
+p.tableblock > code:only-child { background: none; padding: 0; }
+
+p.tableblock { font-size: 1em; }
+
+td > div.verse { white-space: pre; }
+
+ol { margin-left: 1.75em; }
+
+ul li ol { margin-left: 1.5em; }
+
+dl dd { margin-left: 1.125em; }
+
+dl dd:last-child, dl dd:last-child > :last-child { margin-bottom: 0; }
+
+ol > li p, ul > li p, ul dd, ol dd, .olist .olist, .ulist .ulist, .ulist .olist, .olist .ulist { margin-bottom: 0.625em; }
+
+ul.unstyled, ol.unnumbered, ul.checklist, ul.none { list-style-type: none; }
+
+ul.unstyled, ol.unnumbered, ul.checklist { margin-left: 0.625em; }
+
+ul.checklist li > p:first-child > .fa-square-o:first-child, ul.checklist li > p:first-child > .fa-check-square-o:first-child { width: 1em; font-size: 0.85em; }
+
+ul.checklist li > p:first-child > input[type="checkbox"]:first-child { width: 1em; position: relative; top: 1px; }
+
+ul.inline { margin: 0 auto 0.625em auto; margin-left: -1.375em; margin-right: 0; padding: 0; list-style: none; overflow: hidden; }
+ul.inline > li { list-style: none; float: left; margin-left: 1.375em; display: block; }
+ul.inline > li > * { display: block; }
+
+.unstyled dl dt { font-weight: normal; font-style: normal; }
+
+ol.arabic { list-style-type: decimal; }
+
+ol.decimal { list-style-type: decimal-leading-zero; }
+
+ol.loweralpha { list-style-type: lower-alpha; }
+
+ol.upperalpha { list-style-type: upper-alpha; }
+
+ol.lowerroman { list-style-type: lower-roman; }
+
+ol.upperroman { list-style-type: upper-roman; }
+
+ol.lowergreek { list-style-type: lower-greek; }
+
+.hdlist > table, .colist > table { border: 0; background: none; }
+.hdlist > table > tbody > tr, .colist > table > tbody > tr { background: none; }
+
+td.hdlist1 { padding-right: .75em; font-weight: bold; }
+
+td.hdlist1, td.hdlist2 { vertical-align: top; }
+
+.literalblock + .colist, .listingblock + .colist { margin-top: -0.5em; }
+
+.colist > table tr > td:first-of-type { padding: 0 0.75em; line-height: 1; }
+.colist > table tr > td:last-of-type { padding: 0.25em 0; }
+
+.thumb, .th { line-height: 0; display: inline-block; border: solid 4px white; -webkit-box-shadow: 0 0 0 1px #dddddd; box-shadow: 0 0 0 1px #dddddd; }
+
+.imageblock.left, .imageblock[style*="float: left"] { margin: 0.25em 0.625em 1.25em 0; }
+.imageblock.right, .imageblock[style*="float: right"] { margin: 0.25em 0 1.25em 0.625em; }
+.imageblock > .title { margin-bottom: 0; }
+.imageblock.thumb, .imageblock.th { border-width: 6px; }
+.imageblock.thumb > .title, .imageblock.th > .title { padding: 0 0.125em; }
+
+.image.left, .image.right { margin-top: 0.25em; margin-bottom: 0.25em; display: inline-block; line-height: 0; }
+.image.left { margin-right: 0.625em; }
+.image.right { margin-left: 0.625em; }
+
+a.image { text-decoration: none; }
+
+span.footnote, span.footnoteref { vertical-align: super; font-size: 0.875em; }
+span.footnote a, span.footnoteref a { text-decoration: none; }
+span.footnote a:active, span.footnoteref a:active { text-decoration: underline; }
+
+#footnotes { padding-top: 0.75em; padding-bottom: 0.75em; margin-bottom: 0.625em; }
+#footnotes hr { width: 20%; min-width: 6.25em; margin: -.25em 0 .75em 0; border-width: 1px 0 0 0; }
+#footnotes .footnote { padding: 0 0.375em; line-height: 1.3; font-size: 0.875em; margin-left: 1.2em; text-indent: -1.2em; margin-bottom: .2em; }
+#footnotes .footnote a:first-of-type { font-weight: bold; text-decoration: none; }
+#footnotes .footnote:last-of-type { margin-bottom: 0; }
+
+#content #footnotes { margin-top: -0.625em; margin-bottom: 0; padding: 0.75em 0; }
+
+.gist .file-data > table { border: 0; background: #fff; width: 100%; margin-bottom: 0; }
+.gist .file-data > table td.line-data { width: 99%; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+.big { font-size: larger; }
+
+.small { font-size: smaller; }
+
+.underline { text-decoration: underline; }
+
+.overline { text-decoration: overline; }
+
+.line-through { text-decoration: line-through; }
+
+.aqua { color: #00bfbf; }
+
+.aqua-background { background-color: #00fafa; }
+
+.black { color: black; }
+
+.black-background { background-color: black; }
+
+.blue { color: #0000bf; }
+
+.blue-background { background-color: #0000fa; }
+
+.fuchsia { color: #bf00bf; }
+
+.fuchsia-background { background-color: #fa00fa; }
+
+.gray { color: #606060; }
+
+.gray-background { background-color: #7d7d7d; }
+
+.green { color: #006000; }
+
+.green-background { background-color: #007d00; }
+
+.lime { color: #00bf00; }
+
+.lime-background { background-color: #00fa00; }
+
+.maroon { color: #600000; }
+
+.maroon-background { background-color: #7d0000; }
+
+.navy { color: #000060; }
+
+.navy-background { background-color: #00007d; }
+
+.olive { color: #606000; }
+
+.olive-background { background-color: #7d7d00; }
+
+.purple { color: #600060; }
+
+.purple-background { background-color: #7d007d; }
+
+.red { color: #bf0000; }
+
+.red-background { background-color: #fa0000; }
+
+.silver { color: #909090; }
+
+.silver-background { background-color: #bcbcbc; }
+
+.teal { color: #006060; }
+
+.teal-background { background-color: #007d7d; }
+
+.white { color: #bfbfbf; }
+
+.white-background { background-color: #fafafa; }
+
+.yellow { color: #bfbf00; }
+
+.yellow-background { background-color: #fafa00; }
+
+span.icon > .fa { cursor: default; }
+
+.admonitionblock td.icon [class^="fa icon-"] { font-size: 2.5em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); cursor: default; }
+.admonitionblock td.icon .icon-note:before { content: "\f05a"; color: #b65413; }
+.admonitionblock td.icon .icon-tip:before { content: "\f0eb"; text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8); color: #111; }
+.admonitionblock td.icon .icon-warning:before { content: "\f071"; color: #bf6900; }
+.admonitionblock td.icon .icon-caution:before { content: "\f06d"; color: #bf3400; }
+.admonitionblock td.icon .icon-important:before { content: "\f06a"; color: #bf0000; }
+
+.conum[data-value] { display: inline-block; color: #fff !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; font-size: 0.75em; width: 1.67em; height: 1.67em; line-height: 1.67em; font-family: "Open Sans", "DejaVu Sans", sans-serif; font-style: normal; font-weight: bold; }
+.conum[data-value] * { color: #fff !important; }
+.conum[data-value] + b { display: none; }
+.conum[data-value]:after { content: attr(data-value); }
+pre .conum[data-value] { position: relative; top: -0.125em; }
+
+b.conum * { color: inherit !important; }
+
+.conum:not([data-value]):empty { display: none; }
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../highlight/styles/idea.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>ProActive Service Automation (PSA)</h1>
+<div class="details">
+<span id="author" class="author">The Activeeon team</span><br>
+<span id="email" class="email"><a href="mailto:contact@activeeon.com">contact@activeeon.com</a></span><br>
+<span id="revnumber">version unspecified</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">PSA User Guide</div>
+<ul class="sectlevel1">
+<li><a href="PSAUserGuide.html#_all_documentation_links">All documentation links</a></li>
+<li><a href="PSAUserGuide.html#_main_principles_of_psa">1. Main principles of PSA</a></li>
+<li><a href="PSAUserGuide.html#_psa_portal">2. PSA Portal</a></li>
+<li><a href="PSAUserGuide.html#_reference">3. Reference</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<script>
+var header = document.getElementById('header').innerHTML
+var newHeader = header.replace("</h1>", "</h1><h4>Version " + localStorage.getItem('conf_version') + ' - ' + localStorage.getItem('conf_date') + "</h4>");
+document.getElementById('header').innerHTML = newHeader
+</script>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_all_documentation_links"><a class="anchor" href="PSAUserGuide.html#_all_documentation_links"></a><a class="link" href="PSAUserGuide.html#_all_documentation_links">All documentation links</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="all_doc_pws"><a class="anchor" href="PSAUserGuide.html#all_doc_pws"></a><a class="link" href="PSAUserGuide.html#all_doc_pws">ProActive Workflows &amp; Scheduling (PWS)</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><h4 id="_all_doc_pws_user_guide" style="display:inline;font-size:1em""><a href="../user/ProActiveUserGuide.html#_all_doc_pws_user_guide">PWS User Guide</a></h4>
+&nbsp;(Workflows, Workload automation, Jobs, Tasks, Catalog, Resource Management, Big Data/ETL, …​)</p>
+</li>
+<li><p><h4 id="all_doc_pws_modules" style="display:inline;font-size:1em"">PWS Modules</h4></p>
+
+<ul>
+<li><p><h5 id="_all_doc_jp_user_guide" style="display:inline;font-size:1em""><a href="../JobPlanner/JobPlannerUserGuide.html#_all_doc_jp_user_guide">Job Planner</a></h5>
+&nbsp;(Time-based Scheduling)</p>
+</li>
+<li><p><h5 id="_all_doc_peo_user_guide" style="display:inline;font-size:1em""><a href="../PEO/PEOUserGuide.html#_all_doc_peo_user_guide">Event Orchestration</a></h5>
+&nbsp;(Event-based Scheduling)</p>
+</li>
+<li><p><h5 id="_all_doc_pca_user_guide" style="display:inline;font-size:1em""><a href="PSAUserGuide.html#_all_doc_pca_user_guide">Service Automation</a></h5>
+&nbsp;(PaaS On-Demand, Service deployment and management)</p>
+</li>
+</ul>
+</li>
+<li><p><h4 id="_all_doc_pws_admin_guide" style="display:inline;font-size:1em""><a href="../admin/ProActiveAdminGuide.html#_all_doc_pws_admin_guide">PWS Admin Guide</a></h4>
+&nbsp;(Installation, Infrastructure &amp; Nodes setup, Agents,…​)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proactive_machine_learning_paio"><a class="anchor" href="PSAUserGuide.html#_proactive_machine_learning_paio"></a><a class="link" href="PSAUserGuide.html#_proactive_machine_learning_paio">ProActive AI Orchestration (PAIO)</a></h3>
+<div class="ulist">
+<ul>
+<li><p><h4 id="_all_doc_paio_user_guide" style="display:inline;font-size:1em"><a href="../PAIO/PAIOUserGuide.html#_all_doc_paio_user_guide">PAIO User Guide</a></h4>
+&nbsp;(a complete Data Science and Machine Learning platform, with Studio & MLOps)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<h3 id="_all_doc_api_doc"><a class="anchor" href="PSAUserGuide.html#_all_doc_api_doc"></a><a class="link" href="PSAUserGuide.html#_all_doc_api_doc">API documentation</a></h3>
+<p><strong>
+<a class="restUrl" href="../../rest.html" target="_blank">Scheduler REST</a>&nbsp;&nbsp;&nbsp;
+<a href="../user/ProActiveUserGuide.html#_scheduler_graphql_api">Scheduler GraphQL</a>  
+<a href="../user/ProActiveUserGuide.html#_scheduler_command_line">Scheduler CLI</a>  
+<a href="../javadoc/index.html%3Forg%252Fow2%252Fproactive%252Fscheduler%252Frest%252FSchedulerClient.html">Scheduler Java</a>  
+<a href="../javadoc/index.html%3Forg%252Fow2%252Fproactive%252Fscheduler%252Fcommon%252Fjob%252FTaskFlowJob.html">Workflow Creation Java</a>  
+<a href="https://github.com/ow2-proactive/proactive-python-client#proactive-scheduler-client">Python Client</a>  
+<a href="../PAIO/PAIOUserGuide.html#_proactive_jupyter_kernel">Jupyter Kernel</a>
+<a href="https://www.activeeon.com/public_content/documentation/csharp-client/">.NET Client</a>
+</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_main_principles_of_psa"><a class="anchor" href="PSAUserGuide.html#_main_principles_of_psa"></a><a class="link" href="PSAUserGuide.html#_main_principles_of_psa">1. Main principles of PSA</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>ProActive Service Automation (PSA)</strong> allows automating service deployment, together with their life-cycle management. Services are instantiated by workflows (executed as a Job by the Scheduler), and related workflows allow to move instances from a state to another one.</p>
+</div>
+<div class="paragraph">
+<p>At any point in time, each Service Instance has a specific State (RUNNING, ERROR, FINISHED, etc.).</p>
+</div>
+<div class="paragraph">
+<p>Attached to each Service Instance, PSA service stores some information such as:
+Service Instance Id, Service Id, Service Instance State, the ordered list of Jobs executed for the Service, a set of variables with their values (a map that includes for instance the service endpoint), etc.</p>
+</div>
+<div class="paragraph">
+<p>The tutorials <a href="https://try.activeeon.com/tutorials/basic_service_creation/basic_service_creation.html" target="_blank" rel="noopener">Create your own basic service</a> or <a href="https://try.activeeon.com/tutorials/advanced_service_creation/advanced_service_creation.html" target="_blank" rel="noopener">Create your own advanced service</a>
+help you to build your own services.</p>
+</div>
+<div class="sect2">
+<h3 id="_definitions_and_concepts"><a class="anchor" href="PSAUserGuide.html#_definitions_and_concepts"></a><a class="link" href="PSAUserGuide.html#_definitions_and_concepts">1.1. Definitions and Concepts</a></h3>
+<div class="paragraph">
+<p>The following terms are used as ProActive Service Automation (PSA) definitions and main concepts:</p>
+</div>
+<div id="_definition_Service" class="dlist">
+<dl>
+<dt class="hdlist1">Service</dt>
+<dd>
+<p>A set of workflows representing Actions and having the same Service ID.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_introduction.png" alt="PCA introduction" width="390" height="753">
+</div>
+</div>
+<div id="_definition_Activated_Service" class="dlist">
+<dl>
+<dt class="hdlist1">Activated Service or Service Instance</dt>
+<dd>
+<p>An Activated Service is an Instance of a Service. It is characterized by a Service ID and an Instance ID.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_activated_services.png" alt="PCA activated services" width="512" height="256">
+</div>
+</div>
+<div id="_definition_Action" class="dlist">
+<dl>
+<dt class="hdlist1">Action</dt>
+<dd>
+<p>An Action will launch a workflow on a Service Instance modifying its State. An action is characterized by &lt;a Service ID + a workflow ID + a state&gt;. The Service ID and the State are respectively named « pca.service.id » and « pca.states » in the list of the workflow Generic Information.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>An Action goes from an initial State and conducts to a target State after the Transition is completed.
+As an Action must be deterministic, for an given initial State it can conduct to a unique target state.</p>
+</div>
+<div class="paragraph">
+<p>There are three specific kinds of Actions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Activation:</strong> to start a Service Instance (from the State VOID to a defined State)</p>
+</li>
+<li>
+<p><strong>Finishing:</strong> to stop a Service Instance (from a defined State to the State FINISHED)</p>
+</li>
+<li>
+<p><strong>Killing:</strong> PSA is trying to force a Service Instance to terminate (from a defined State to the State KILLED)</p>
+</li>
+</ul>
+</div>
+<div id="_definition_States" class="dlist">
+<dl>
+<dt class="hdlist1">States</dt>
+<dd>
+<p>The specific States that are pre-defined in ProActive Service Automation are VOID, FINISHED, ERROR, KILLED.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>VOID</strong> Implicit State before a Service is activated</p>
+</li>
+<li>
+<p><strong>FINISHED</strong> Implicit State after a Service is terminated/no longer activated</p>
+</li>
+<li>
+<p><strong>ERROR</strong> Implicit State after something wrong happened</p>
+</li>
+<li>
+<p><strong>KILLED</strong> When PSA abnormally forces an Activated Service to terminate.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Please note that users are free to define their own custom States (e.g. RUNNING, SUSPENDED, &#8230;&#8203;)
+</td>
+</tr>
+</table>
+</div>
+<div id="_definition_Endpoints" class="dlist">
+<dl>
+<dt class="hdlist1">Endpoints</dt>
+<dd>
+<p>Endpoints are a list of (Key,Value) defined in the Variables e.g. [(spark_master_gui, &lt;spark_master_gui&gt;), (spark_worker_0_gui, &lt;spark_worker_0_gui&gt;), (spark_worker_1_gui, &lt;spark_worker_1_gui&gt;)]. The endpoint URL should contain the protocol, e.g. www.activeeon.com will not work, but <a href="https://www.activeeon.com" class="bare">https://www.activeeon.com</a> will.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To run multiple PSA services that share an endpoint, the same ENDPOINT_ID value should be given to all of the PSA services that, when started, require this variable.
+</td>
+</tr>
+</table>
+</div>
+<div id="_definition_Service_Name_Infrastructure_Name" class="dlist">
+<dl>
+<dt class="hdlist1">Service_Name, Infrastructure_Name</dt>
+<dd>
+<p>Service_Name, Infrastructure_Name are Service specific. If a Service wants/needs them, they can be stored in the data associated to the service to give a name to the service, to identify the infrastructure where the Service Instance will be deployed.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_transitions"><a class="anchor" href="PSAUserGuide.html#_service_transitions"></a><a class="link" href="PSAUserGuide.html#_service_transitions">1.2. Service Transitions</a></h3>
+<div class="paragraph">
+<p>This paragraph describes how an Activated Service goes from one State to another. For instance how the Activated Service S1 transitions from the State RUNNING to the State SUSPENDED.</p>
+</div>
+<div id="_Standard_Behavior_States_and_Transition_Syntax" class="dlist">
+<dl>
+<dt class="hdlist1">States and Transition Syntax</dt>
+<dd>
+<p>The States as well as the Transitions from one State to another are provided in workflows Generic Information named « pca.states » with the following syntax:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>pca.states=(a,b)
+or
+pca.states=(a,b)(c,d)…(e,f)</p>
+</div>
+<div class="paragraph">
+<p>meaning that the current workflow, for the current Service ID, when activated in State a, will transition the Service Instance in State b; or if activated in State c, the target state will be d.</p>
+</div>
+<div class="paragraph">
+<p>An Activation Workflow (allowing to start a Service Instance) will have pca.states=(VOID,x).</p>
+</div>
+<div class="paragraph">
+<p>A Finishing Workflow (allowing to terminate a Service Instance) can have for instance pca.states=(RUNNING,FINISHED)(SUSPENDED,FINISHED)</p>
+</div>
+<div id="_Standard_Behavior_Service_Transitions" class="dlist">
+<dl>
+<dt class="hdlist1">Service Transitions</dt>
+<dd>
+<p>Actions that can be applied on Activated Services depend on their State. If they are in the State « CUR_STATE », all the workflow actions that have the Generic Information named « pca.states » equal to (CUR_STATE, xyz_state) or (ALL, xyz_state) can be executed.
+After executing the workflow actions, if everything goes right, the Activated Services will be in the state « xyz_state ».</p>
+</dd>
+</dl>
+</div>
+<div id="_Standard_Behavior_Transitioning" class="dlist">
+<dl>
+<dt class="hdlist1">Transitioning</dt>
+<dd>
+<p>An Activated Service can be in a specific Transitioning State. In that case the State is labeled with the string "INITIAL_STATE -&#8594; DESTINATION_STATE", for instance "RUNNING -&#8594; FINISHED". No new Action can be started on a Transitioning Activated Service, except the Kill action.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When a PSA Workflow deploys a Service, it loops on the targeted nodes to control the service health (with a cron-loop).
+Moreover, the targeted nodes can be "reserved" by the service using dedicated tokens (token "tensorboard", token "spark",..).
+The Nodes being used can be taken from an existing Node Source (e.g. ServiceNodeSource), or launched specifically at the beginning of the deployment (e.g. starting a NodeSource on Azure Cloud).</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Please note that the Service must contain at least two workflows: a start workflow which will create the Service Instance and a finish workflow which will delete the Service Instance. The start workflow cron-loops on the targeted nodes until an action changes the Service Instance State.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_void_to_running.png" alt="PCA void to running" width="512" height="256">
+</div>
+</div>
+<div id="_Standard_Behavior_End_of_Transitioning" class="dlist">
+<dl>
+<dt class="hdlist1">End of Transitioning</dt>
+<dd>
+<p>There is no implicit detection of the end of a Transitioning State. A workflow that carries on a transition has to inform Service Automation that the transition is actually successfully finished.
+Each service workflows will contain a task that will update the Service Instance State after finishing its Actions.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_running_to_finished.png" alt="PCA running to finished" width="512" height="256">
+</div>
+</div>
+<div id="_Standard_Behavior_Workflows_for_Service_Deployment" class="dlist">
+<dl>
+<dt class="hdlist1">Workflows for Service Deployment</dt>
+<dd>
+<p>A workflow that deploys a Service Instance will wait (Sleep Loop) for a State change and terminate in a correct manner. There are 2 possibilities:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wait until the beginning of the Transition: e.g. no longer State RUNNING. (The state can be "from RUNNING to FINISHED".)</p>
+</li>
+<li>
+<p>Wait until the end of the Transition: e.g. FINISHED
+(The state cannot be Transitioning, neither RUNNING, but has to have reached rather "FINISHED".)
+This is the preferred choice to avoid the service nodes being given to another Task/Service before a
+Delete Action actually remove the Service Instance artifacts</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div id="_Standard_Behavior_Submission_of_a_Workflow_by_PCA" class="dlist">
+<dl>
+<dt class="hdlist1">Submission of a Workflow by PSA</dt>
+<dd>
+<p>To execute an Action, PSA will submit a Workflow to the scheduler, using as Variable Map all the Variables that have been collected and updated so far for that Service. A first Task in the Wf is expected to collect all the values, even those not explicitly being Wf Variables.</p>
+</dd>
+</dl>
+</div>
+<div id="_Standard_Behavior_Information_of_Service_Instance" class="dlist">
+<dl>
+<dt class="hdlist1">Information of Service Instance</dt>
+<dd>
+<p>A Service Automation Workflow and third parties can get access to information about a Service Instance through Service Automation. It allows for instance a Delete Action to get the URLs of the Nodes where the Service Instance is deployed, or the Docker Containers that are being used and need to be killed to terminate the Service Instance.
+E.g. A Service Automation workflow that starts Docker containers on the nodes is expected to store the Docker Ids in Service Automation for that Instance.</p>
+</dd>
+</dl>
+</div>
+<div id="_Standard_Behavior_Variables_stored_in_a_Service_Instance" class="dlist">
+<dl>
+<dt class="hdlist1">Variables stored in a Service Instance</dt>
+<dd>
+<p>From the beginning of its Activation, when an Action is executed, the Variables/Values of the action Workflows are stored and append within the PSA service for that service instance. When a Variable already existed in the list, its value is updated with the last workflow value (AddAll).</p>
+</dd>
+</dl>
+</div>
+<div id="_Standard_Behavior_Workflows_executed_by_a_Service_Instance" class="dlist">
+<dl>
+<dt class="hdlist1">Workflows executed by a Service Instance</dt>
+<dd>
+<p>From the beginning of its Activation, until it reaches the FINISH state, a Service Instance  has in PSA service (and accessible through the API) the ordered list of Job Id that has been executed as Action on it.
+Besides the Job ids, Service Automation service does not duplicate and store any information about the Job. Service Automation portal will get those information from the Scheduler.</p>
+</dd>
+</dl>
+</div>
+<div id="_Standard_Behavior_Endpoints" class="dlist">
+<dl>
+<dt class="hdlist1">Endpoints</dt>
+<dd>
+<p>Endpoints are a list of Key/Value defined in the Variables
+  e.g. [(spark_master_gui, &lt;spark_master_gui&gt;), (spark_worker_0_gui, &lt;spark_worker_0_gui&gt;), (spark_worker_1_gui, &lt;spark_worker_1_gui&gt;)]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_execution"><a class="anchor" href="PSAUserGuide.html#_service_execution"></a><a class="link" href="PSAUserGuide.html#_service_execution">1.3. Service Execution</a></h3>
+<div class="paragraph">
+<p>PSA services can be instantiated in two different ways:</p>
+</div>
+<div class="paragraph">
+<p>1- Via the <a href="PSAUserGuide.html#_psa_portal">ProActive Service Automation</a> (PSA) Portal.</p>
+</div>
+<div class="paragraph">
+<p>2- Via Workflow Execution Portal. To launch PSA services, you have to open the Submit Window in the Workflow Execution Portal and then select 'Service Workflows Only' option to filter PSA services from the list of workflows.
+After selecting a PSA service to submit, you can provide variable values that help configure this service then press submit.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_psa_portal"><a class="anchor" href="PSAUserGuide.html#_psa_portal"></a><a class="link" href="PSAUserGuide.html#_psa_portal">2. PSA Portal</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overall_view"><a class="anchor" href="PSAUserGuide.html#_overall_view"></a><a class="link" href="PSAUserGuide.html#_overall_view">2.1. Overall View</a></h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_overall_view.png" alt="PCA overall view" width="700" height="512">
+</div>
+</div>
+<div class="paragraph">
+<p>The ProActive Service Automation (PSA) Portal has a view with four main sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Service Automation workflows</p>
+</li>
+<li>
+<p>The list of activated Services Instances</p>
+</li>
+<li>
+<p>The list of finished or killed Services Instances</p>
+</li>
+<li>
+<p>The monitoring items</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_detailed_view"><a class="anchor" href="PSAUserGuide.html#_detailed_view"></a><a class="link" href="PSAUserGuide.html#_detailed_view">2.2. Detailed View</a></h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_portail.png" alt="PCA portail" width="512" height="512">
+</div>
+</div>
+<div class="paragraph">
+<p>The ProActive Service Automation (PSA) Portal allows to have access on several tabs.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Service Activation</strong> shows the list of workflow that allows activating a Service Instance. Only creation workflows with VOID as origin State are displayed.
+It is possible to get the latest version of the services by using the refresh button.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_service_activation.png" alt="PCA service activation" width="512" height="256">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Full Services View</strong> gives all Service Automation workflows sorted by Service. Only creation workflows can be submitted from this tab to create Service Instances.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_full_service_view.png" alt="PCA full service view" width="550" height="835">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Service Jobs</strong> shows all jobs related to activated Service Instances grouped by Service Instances.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_service_jobs.png" alt="PCA service jobs" width="512" height="256">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Activated Services</strong> gives the list of Services that are not in State ‘FINISHED’ or ‘KILLED’.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_activated_services.png" alt="PCA activated services" width="512" height="256">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Finished Services</strong> shows the list of Services that are in State ‘FINISHED’ and ‘KILLED’. The CLEAN action removes the Service Instance from the database.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_finished_services.png" alt="PCA finished services" width="512" height="256">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Monitoring Items</strong></p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_monitoring.png" alt="PCA monitoring" width="512" height="256">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage_examples"><a class="anchor" href="PSAUserGuide.html#_usage_examples"></a><a class="link" href="PSAUserGuide.html#_usage_examples">2.3. Usage examples</a></h3>
+<div class="paragraph">
+<p>In this section, we show how to start a PSA service and how to use actions that manage its life cycle. To do that, we choose MongoDB and Spark/Hdfs PSA services as running examples.</p>
+</div>
+<div class="sect3">
+<h4 id="_mongodb"><a class="anchor" href="PSAUserGuide.html#_mongodb"></a><a class="link" href="PSAUserGuide.html#_mongodb">2.3.1. MongoDB</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start MongoDB</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To start the mongoDB service, you have to go to Service Automation section in the automation dashboard portal and choose MongoDB service from the service activation tab.
+At this point, you can provide values for variables that help configure this service then press execute.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/start_mongo.png" alt="start mongo" width="512" height="256">
+</div>
+</div>
+<div class="paragraph">
+<p>Once the MongoDB service is deployed, the state of the instance becomes RUNNING.
+At this stage, you can interact with the database provided by this PSA service.
+For this, you might need a host and a port number that can be retrieved from the endpoint displayed in the info window as shown bellow:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/endpoint_mongo.png" alt="endpoint mongo" width="512" height="256">
+</div>
+</div>
+<div class="paragraph">
+<p>Two actions are possible at this step; pause or finish the instance.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/actions_mongo.png" alt="actions mongo" width="512" height="256">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Pause MongoDB</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The running instance can be paused by executing the pause action when the instance is in the RUNNING state.
+The pause action suspends only processes in the specified containers to release resources without losing data/container.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/pause_mongo.png" alt="pause mongo" width="512" height="256">
+</div>
+</div>
+<div class="paragraph">
+<p>From the pause state, two actions are possible; resume or finish the instance.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/actions1_mongo.png" alt="actions1 mongo" width="512" height="256">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Resume MongoDB</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The resume action allows to restart a paused instance while preserving previous state of the database. The instance is the RUNNING state.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/resume_mongo.png" alt="resume mongo" width="512" height="256">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Finish MongoDB</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the user does not need this PSA service anymore, he can delete it to release resources using the finish action.
+This action can be applied when the instance is in the RUNNING or PAUSED state.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/finish_mongo.png" alt="finish mongo" width="512" height="256">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sparkhdfs"><a class="anchor" href="PSAUserGuide.html#_sparkhdfs"></a><a class="link" href="PSAUserGuide.html#_sparkhdfs">2.3.2. Spark/Hdfs</a></h4>
+<div class="paragraph">
+<p>In this example, we show how to deploy through PSA Portal a HDFS and Spark platform that be used to run big data applications.</p>
+</div>
+<div class="paragraph">
+<p>This deployment is done in several step</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Reserve Node</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This step allows to reserve the ressource to use to host the platform.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_reserve_node.png" alt="PCA reserve node" width="512" height="200">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Deploy Swarm</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After the node reservation, two actions are possible from the Actions tab.
+You an release the ressource or deploy swarm to have the network and cluster of docker containers.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_deploy_swarm.png" alt="PCA deploy swarm" width="512" height="256">
+</div>
+</div>
+<div class="paragraph">
+<p>Choose swarm and click on execute Action to deploy it.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_execute_swarm1.png" alt="PCA execute swarm1" width="512" height="256">
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_execute_swarm2.png" alt="PCA execute swarm2" width="512" height="180">
+</div>
+</div>
+<div class="paragraph">
+<p>At the end, the State of the Service Instance is SWARM_DEPLOYED.
+Three Actions are available at this step and you can access to the cluster of docker containers through the endpoint (consul_UI).</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_execute_swarm3.png" alt="PCA execute swarm3" width="512" height="256">
+</div>
+</div>
+<div class="paragraph">
+<p>The next step is to deploy HDFS</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Deploy HDFS</strong></p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_execute_hdfs.png" alt="PCA execute hdfs" width="512" height="180">
+</div>
+</div>
+<div class="paragraph">
+<p>At the end, the State of the Service Instance is HDFS_DEPLOYED.
+Two Actions are available at this step.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_execute_hdfs1.png" alt="PCA execute hdfs1" width="512" height="256">
+</div>
+</div>
+<div class="paragraph">
+<p>You can access to the HDFS interface or the cluster of docker containers through the endpoints (HDFS_UI, consul_UI).</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_execute_hdfs2.png" alt="PCA execute hdfs2" width="512" height="256">
+</div>
+</div>
+<div class="paragraph">
+<p>The next step is to deploy Spark.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Deploy Spark</strong></p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_execute_spark.png" alt="PCA execute spark" width="512" height="180">
+</div>
+</div>
+<div class="paragraph">
+<p>You can access to HDFS or SPARK interfaces (HDFS_UI, SPARK_UI).</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../images/PCA_execute_spark1.png" alt="PCA execute spark1" width="512" height="256">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reference"><a class="anchor" href="PSAUserGuide.html#_reference"></a><a class="link" href="PSAUserGuide.html#_reference">3. Reference</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section, we provide a quick reference about how to configure and start some PSA services from our Catalog.</p>
+</div>
+<div class="sect2">
+<h3 id="_cassandra"><a class="anchor" href="PSAUserGuide.html#_cassandra"></a><a class="link" href="PSAUserGuide.html#_cassandra">3.1. Cassandra</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal a Cassandra Database server. The service can be started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Cassandra PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cassandra-server</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cassandra-endpoint</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENV_VARS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of the environment variables. Each environment variable should be preceded by -e.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>-e CASSANDRA_CLUSTER_NAME="cluster1"</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the variable description can be found <a href="https://hub.docker.com/_/cassandra/" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_coco_annotator"><a class="anchor" href="PSAUserGuide.html#_coco_annotator"></a><a class="link" href="PSAUserGuide.html#_coco_annotator">3.2. COCO Annotator</a></h3>
+<div class="paragraph">
+<p>This service allows the deployment of an instance of COCO Annotator server through ProActive Service Automation (PSA) Portal. The service can be started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. COCO_Annotator variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>coco_annotator-gui</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTPS_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if the protocol https is needed to start the COCO Annotator service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the service that will be deployed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>coco-annotator</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROXYFIED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if a proxy is needed to protect the access to this model-service endpoint.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_docker"><a class="anchor" href="PSAUserGuide.html#_docker"></a><a class="link" href="PSAUserGuide.html#_docker">3.3. Docker</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal any docker image.
+It serves as a generic template that can be used to create and start any docker image ON DEMAND simply by providing the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Docker PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docker-endpoint</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_IMAGE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker image name. It can include a tag as well.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>postgres</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_PORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The main image port. Please note that it will be forwarded to a random port that will be returned by this service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>5432</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_CONTAINER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If you desire to stop this container and restart it later.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>postgres-container</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_OPTIONS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">options like environment variables, etc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>-e POSTGRES_USER=paio -e POSTGRES_PASSWORD=proactive -e POSTGRES_DB=activeeon</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_COMMAND</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the root user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>-c "listen_addresses=0.0.0.0"</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_elasticsearch"><a class="anchor" href="PSAUserGuide.html#_elasticsearch"></a><a class="link" href="PSAUserGuide.html#_elasticsearch">3.4. Elasticsearch</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal a Elasticsearch Database server.
+The service is started using the following variabless.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Elasticsearch PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elasticsearch-server</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elasticsearch-endpoint</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the variable description can be found <a href="https://hub.docker.com/_/elasticsearch/" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jupyterlab"><a class="anchor" href="PSAUserGuide.html#_jupyterlab"></a><a class="link" href="PSAUserGuide.html#_jupyterlab">3.5. Jupyterlab</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal an instance of JupyterLab server (<a href="https://jupyterlab.readthedocs.io/en/stable/" class="bare">https://jupyterlab.readthedocs.io/en/stable/</a>).
+The service is started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Jupyterlab PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jupyterlab-server-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>JUPYTERLAB_PASSWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protects the JupyterLab service with a password.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Empty</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jupyterlab-endpoint-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROXYFIED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows access to the endpoint through Service Automation Http(s) Proxy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTPS_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start JupyterLab in https mode (generates a self-signed certificate or use <code>fullchain.pem</code> and <code>privkey.pem</code> if present in the ProActive Global Space).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SERVICE_PORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls the port used to start the JupyterLab server. <code>-1</code> for random port allocation. The port range will be chosen either from <code>$PA_SCHEDULER_HOME/config/pca_services_port_range</code> or <code>/proc/sys/net/ipv4/ip_local_port_range</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENGINE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Container engine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice(docker,singularity)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docker</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SINGULARITY_IMAGE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location of the singularity image on the node file system (this path will be used to either store the singularity image or the image will be directly used if the file is present)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp/jupyterlab.sif</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BUILD_IMAGE_IF_NOT_EXISTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pull and build the singularity image if the sif file is not present</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Native Scheduler node source to use (if the service must be deployed inside a cluster such as SLURM, LSF, etc)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Empty</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER_PARAMS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameters given to the native scheduler (Slurm, LSF, etc) while requesting a ProActive node used to deploy the PSA service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Empty</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_kafka"><a class="anchor" href="PSAUserGuide.html#_kafka"></a><a class="link" href="PSAUserGuide.html#_kafka">3.6. Kafka</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal an instance of Apache Kafka publish/subscribe system (<a href="https://kafka.apache.org/" class="bare">https://kafka.apache.org/</a>).
+The deployed instance consists in a single publish/subscribe broker that is based on Apache Zookeeper coordination server.
+The service is started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. Kafka PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kafka-server-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kafka-endpoint</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ZOOKEEPER_INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Zookeeper instance that coordinates the storm deployment.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zookeeper-server-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ZOOKEEPER_SERVICE_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zookeeper service identifier needed to start this service if it does not already exist.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Zookeeper</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the variable description can be found <a href="https://hub.docker.com/_/kafka/" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mongodb_2"><a class="anchor" href="PSAUserGuide.html#_mongodb_2"></a><a class="link" href="PSAUserGuide.html#_mongodb_2">3.7. MongoDB</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal a MongoDB Database server. The service can be started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. MongoDB PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mongodb-server-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mongodb-endpoint-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>USER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username for the root user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_user</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PASSWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the root user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_password</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SERVICE_PORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls the port used to start the JupyterLab server. <code>-1</code> for random port allocation. The port range will be chosen either from <code>$PA_SCHEDULER_HOME/config/pca_services_port_range</code> or <code>/proc/sys/net/ipv4/ip_local_port_range</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENGINE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Container engine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice(docker,singularity)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docker</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_IMAGE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker image used to start MongoDB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activeeon/mongo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SINGULARITY_IMAGE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location of the singularity image on the node file system (this path will be used to either store the singularity image or the image will be directly used if the file is present)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp/mongo_db.sif</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BUILD_IMAGE_IF_NOT_EXISTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pull and build the singularity image if the sif file is not present</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MOUNT_DB_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When using singularity, this folder will be used to store the database data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp/mongodb-server-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Native Scheduler node source to use (if the service must be deployed inside a cluster such as SLURM, LSF, etc)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Slurm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER_PARAMS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameters given to the native scheduler (Slurm, LSF, etc) while requesting a ProActive node used to deploy the PSA service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--gpus=1</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that the <code>USER</code> and <code>PASSWORD</code> variables are used in junction. They should be either both entered or both blank.
+More details about the variable description can be found <a href="https://hub.docker.com/_/mongo/" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mysql"><a class="anchor" href="PSAUserGuide.html#_mysql"></a><a class="link" href="PSAUserGuide.html#_mysql">3.8. MySQL</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal a MySQL Database server. The service can be started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. MySQL PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mysql-server</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mysql-endpoint</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATABASE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of a database to be created on start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_database</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>USER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username for the root user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_user</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PASSWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the root user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_password</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that the <code>USER</code> and <code>PASSWORD</code> variables are used in junction. They should be either both entered or both blank.
+In addition, if <code>DATABASE</code> is assigned a value, then the defined <code>USER</code> will be granted superuser access (corresponding to GRANT ALL) to this database.
+More details about the variable description can be found <a href="https://hub.docker.com/_/mysql/" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_openrefine"><a class="anchor" href="PSAUserGuide.html#_openrefine"></a><a class="link" href="PSAUserGuide.html#_openrefine">3.9. OpenRefine</a></h3>
+<div class="paragraph">
+<p>This service allows the deployment of an OpenRefine server instance through ProActive Service Automation (PSA) Portal. The service can be started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. OpenRefine PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openrefine-gui</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTPS_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if the protocol https is needed to start OpenRefine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the service that will be deployed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openrefine</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROXYFIED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if a proxy is needed to protect the access to this model-service endpoint.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_postgresql"><a class="anchor" href="PSAUserGuide.html#_postgresql"></a><a class="link" href="PSAUserGuide.html#_postgresql">3.10. PostgreSQL</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal a PostgreSQL Database server. The service can be started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 10. PostgreSQL PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>postgres-server</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>postgresql-endpoint</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATABASE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of a database to be created on start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_database</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>USER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username for the root user. change it if you want a different root username . Default "postgres" is used if left empty.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_user</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PASSWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the root user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_password</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the variable description can be found <a href="https://hub.docker.com/_/postgres/" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_greenplum"><a class="anchor" href="PSAUserGuide.html#_greenplum"></a><a class="link" href="PSAUserGuide.html#_greenplum">3.11. Greenplum</a></h3>
+<div class="paragraph">
+<p>This service deploys through  <a href="PSAUserGuide.html#_main_principles_of_psa">ProActive Service Automation</a> (PSA) Portal a Greenplum Database server. The service takes as input the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 11. Greenplum PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>greenplum-server</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>greenplum-endpoint</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATABASE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of a database to be created on start. Change it if you want a different database . Default "testdb" is used if left empty.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_db</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>USER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username for the SUPERUSER. Change it if you want a different username . Default "tester" is used if left empty.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_user</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PASSWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the SUPERUSER. change it if you want a different password . Default "pivotal" is used if left empty.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e.g. <code>my_password</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the variable description can be found <a href="https://hub.docker.com/r/datagrip/greenplum" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ssh"><a class="anchor" href="PSAUserGuide.html#_ssh"></a><a class="link" href="PSAUserGuide.html#_ssh">3.12. SSH</a></h3>
+<div class="paragraph">
+<p>This service deploys the <a href="https://github.com/butlerx/wetty" target="_blank" rel="noopener">WeTTy software</a> through ProActive Service Automation (PSA) portal. It allows the users to open an SSH terminal in their Web browsers.
+The service requires the following variables as input:</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 12. SSH PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ssh-terminal-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TARGET_HOST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH target host, among the list of hosts managed by ProActive Resource Manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>try.activeeon.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SSH_PORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Port used by SSH in the TARGET_HOST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>22</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROXYFIED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether the service is accessed via ProActive proxy (for restricted access control).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>True</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_storm"><a class="anchor" href="PSAUserGuide.html#_storm"></a><a class="link" href="PSAUserGuide.html#_storm">3.13. Storm</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal a cluster of Apache Storm stream processing system (<a href="https://storm.apache.org" class="bare">https://storm.apache.org</a>).
+The service is started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 13. Storm PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>storm-cluster-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>storm-gui</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NUMBER_OF_SUPERVISORS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of worker nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ZOOKEEPER_INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Zookeeper instance that coordinates the storm deployment.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zookeeper-server-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ZOOKEEPER_SERVICE_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zookeeper service identifier needed to start this service if it does not already exist.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Zookeeper</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the variable description can be found <a href="https://hub.docker.com/_/storm/" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tensorboard"><a class="anchor" href="PSAUserGuide.html#_tensorboard"></a><a class="link" href="PSAUserGuide.html#_tensorboard">3.14. Tensorboard</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal an instance of Tensorboard server (<a href="https://www.tensorflow.org/tensorboard" class="bare">https://www.tensorflow.org/tensorboard</a>).
+The service is started using the following variable.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 14. Tensorboard PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tensorboard-server-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tensorboard-gui-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROXYFIED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows access to the endpoint through Service Automation Http(s) Proxy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SERVICE_PORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls the port used to start the Tensorboard server. <code>-1</code> for random port allocation. The port range will be chosen either from <code>$PA_SCHEDULER_HOME/config/pca_services_port_range</code> or <code>/proc/sys/net/ipv4/ip_local_port_range</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MOUNT_LOG_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path on the ProActive node file system used to store Tensorboard data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/shared/$INSTANCE_NAME</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENGINE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Container engine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice(docker,singularity)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docker</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_IMAGE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker image used to start Tensorboard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activeeon/tensorboard</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SINGULARITY_IMAGE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location of the singularity image on the node file system (this path will be used to either store the singularity image or the image will be directly used if the file is present)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp/tensorboard.sif</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BUILD_IMAGE_IF_NOT_EXISTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pull and build the singularity image if the sif file is not present</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Native Scheduler node source to use (if the service must be deployed inside a cluster such as SLURM, LSF, etc)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Slurm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER_PARAMS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameters given to the native scheduler (Slurm, LSF, etc) while requesting a ProActive node used to deploy the PSA service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--gpus=1</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_visdom"><a class="anchor" href="PSAUserGuide.html#_visdom"></a><a class="link" href="PSAUserGuide.html#_visdom">3.15. Visdom</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal an instance of Visdom server (<a href="https://github.com/facebookresearch/visdom" class="bare">https://github.com/facebookresearch/visdom</a>).
+The service is started using the following variable.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 15. Visdom PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>visdom-server-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>visdom-gui-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROXYFIED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows access to the endpoint through Service Automation Http(s) Proxy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SERVICE_PORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls the port used to start the Visdom server. <code>-1</code> for random port allocation. The port range will be chosen either from <code>$PA_SCHEDULER_HOME/config/pca_services_port_range</code> or <code>/proc/sys/net/ipv4/ip_local_port_range</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VISDOM_ENABLE_LOGIN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable Visdom authentication</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VISDOM_USERNAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional username used to authenticate with Visdom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>admin</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VISDOM_PASSWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional password used to authenticate with Visdom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>some_password</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENGINE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Container engine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice(docker,singularity)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docker</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_IMAGE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker image used to start Visdom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activeeon/visdom_server</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SINGULARITY_IMAGE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location of the singularity image on the node file system (this path will be used to either store the singularity image or the image will be directly used if the file is present)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp/visdom_server.sif</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BUILD_IMAGE_IF_NOT_EXISTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pull and build the singularity image if the sif file is not present</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Native Scheduler node source to use (if the service must be deployed inside a cluster such as SLURM, LSF, etc)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Slurm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER_PARAMS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameters given to the native scheduler (Slurm, LSF, etc) while requesting a ProActive node used to deploy the PSA service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--gpus=1</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_model_as_a_service_for_machine_learning"><a class="anchor" href="PSAUserGuide.html#_model_as_a_service_for_machine_learning"></a><a class="link" href="PSAUserGuide.html#_model_as_a_service_for_machine_learning">3.16. Model as a Service for Machine Learning</a></h3>
+<div class="paragraph">
+<p>This service allows the deployment of an instance of MaaS_ML through ProActive Service Automation (PSA) Portal.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the related actions of this service can be found in the <a href="../PAIO/PAIOUserGuide.html#_via_service_automation_portal">PAIO Doc</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The service is started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 16. MaaS_ML PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BUILD_IMAGE_IF_NOT_EXISTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pull or/and build the singularity image if the sif file is not present.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEBUG_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If True, the user will be able to examine the stream of output results of each task.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_IMAGE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the Docker image that will be used to run the different workflow tasks.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activeeon/maas_ml</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DRIFT_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if a detector is needed to check for drifts in the input datasets compared to the training datasets.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DRIFT_THRESHOLD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The level or point at which the data drift is detected and the user is notified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Float</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.9</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The endpoint_id that will be used if <code>PROXYFIED</code> is set to True.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maas-ml-gui-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENGINE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Container engine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docker</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTPS_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if the protocol https is needed for the defined model-service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the service that will be deployed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maas-ml-$PA_JOB_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NODE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the node where the service will be deployed. If empty, the service will be deployed on an available node selected randomly.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Empty</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROXYFIED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if a proxy is needed to protect the access to this model-service endpoint.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PYTHON_ENTRYPOINT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This entry script starts the service and defines the different functions to deploy the model, scores the prediction requests based on the deployed model, and returns the results. This script is specific to your model. This file should be stored in the Catalog under the <code>model_as_service_resources</code> bucket. More information about this file can be found in the <a href="../PAIO/PAIOUserGuide.html#_customize_the_service">Customize the Service</a> section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ml_service</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SERVICE_PORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls the port used to start the Model Service from Service Automation Portal. -1 for random port allocation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SINGULARITY_IMAGE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location of the singularity image on the node file system (this path will be used to either store the singularity image or the image will be directly used if the file is present).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp/maas_ml.sif</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TRACE_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if the user wants to keep a trace on the different changes occurring in the service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>YAML_FILE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A YAML file that describes the OpenAPI Specification ver. 2 (known as Swagger Spec) of the service. This file should be stored in the catalog under the <code>model_as_service_resources</code> bucket. More information about the structure of this file can be found in the section <a href="../PAIO/PAIOUserGuide.html#_customize_the_service">Customize the Service</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ml_service-api</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Native Scheduler node source to use (if the service must be deployed inside a cluster such as SLURM, LSF, etc)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Slurm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER_PARAMS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameters given to the native scheduler (Slurm, LSF, etc) while requesting a ProActive node used to deploy the PSA service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--gpus=1</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_model_as_a_service_for_deep_learning"><a class="anchor" href="PSAUserGuide.html#_model_as_a_service_for_deep_learning"></a><a class="link" href="PSAUserGuide.html#_model_as_a_service_for_deep_learning">3.17. Model as a Service for Deep Learning</a></h3>
+<div class="paragraph">
+<p>This service allows the deployment of an instance of MaaS_DL through ProActive Service Automation (PSA) Portal.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the related actions of this service can be found in the <a href="../PAIO/PAIOUserGuide.html#_via_service_automation_portal">PAIO Doc</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The service is started using the following variables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 17. MaaS_DL PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BUILD_IMAGE_IF_NOT_EXISTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pull and build the singularity image if the Singularity Image File (SIF) file is not available.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEBUG_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If True, the user will be able to examine the stream of output results of each task.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOCKER_IMAGE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the Docker image that will be used to run the different workflow tasks.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activeeon/maas_dl</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The endpoint_id that will be used if <code>PROXYFIED</code> is set to True.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maas_dl-gui</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENGINE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Container engine.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docker</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HTTPS_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if the protocol https is needed for the defined model-service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the service that will be deployed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maas_dl</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MODEL_BASE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location of the model on the node file system (this path will be used to store the model).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MODELS_DEPLOYMENT_REFRESH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of seconds to periodically poll for updated versions of the model configuration file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>30</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Native Scheduler node source to use when the workflow tasks must be deployed inside a cluster such as SLURM, LSF, etc.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Empty</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NATIVE_SCHEDULER_PARAMS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameters given to the native scheduler (SLURM, LSF, etc) while requesting a ProActive node used to deploy the workflow tasks.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Empty</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NODE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the node where the service will be deployed. If empty, the service will be deployed on an available node selected randomly.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Empty</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROXYFIED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if a proxy is needed to protect the access to this model-service endpoint.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PYTHON_ENTRYPOINT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This entry script starts the service and defines the different functions to deploy the model, scores the prediction requests based on the deployed model, and returns the results. This script is specific to your model. This file should be stored in the Catalog under the <code>model_as_service_resources</code> bucket. More information about this file can be found in the <a href="../PAIO/PAIOUserGuide.html#_customize_the_service">Customize the Service</a> section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dl_service</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SERVICE_PORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls the port used to start the Model Service from Service Automation Portal. -1 for random port allocation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SINGULARITY_IMAGE_PATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location of the singularity image on the node file system (this path will be used to either store the singularity image or the image will be directly used if the file is present).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp/maas_dl.sif</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TRACE_ENABLED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True if the user wants to keep a trace on the different changes occurring in the service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>YAML_FILE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A YAML file that describes the OpenAPI Specification ver. 2 (known as Swagger Spec) of the service. This file should be stored in the catalog under the <code>model_as_service_resources</code> bucket. More information about the structure of this file can be found in the section <a href="../PAIO/PAIOUserGuide.html#_customize_the_service">Customize the Service</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dl_service-api</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_zookeeper"><a class="anchor" href="PSAUserGuide.html#_zookeeper"></a><a class="link" href="PSAUserGuide.html#_zookeeper">3.18. Zookeeper</a></h3>
+<div class="paragraph">
+<p>This service allows to deploy through ProActive Service Automation (PSA) Portal an instance of Apache Zookeeper coordination server (<a href="https://zookeeper.apache.org/" class="bare">https://zookeeper.apache.org/</a>). The deployed instance consists in a single Zookeeper broker.
+The service is started using the following variable.</p>
+</div>
+<div class="paragraph">
+<p><strong>Variables:</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 18. Zookeeper PSA service variables</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 15.3847%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variable name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Default/Examples</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INSTANCE_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service instance name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zookeeper-server-1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENDPOINT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the service endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zookeeper-endpoint</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More details about the variable description can be found <a href="https://hub.docker.com/_/zookeeper/" target="_blank" rel="noopener">here</a>.
+</td>
+</tr>
+</table>
+</div>
+<h2 id="_legal_notice" class="discrete">Legal notice</h2>
+<div class="paragraph">
+<p>Activeeon SAS, © 2007-<span id="currentYear">2019</span>. All Rights Reserved.</p>
+</div>
+<div class="paragraph">
+<p>For more information, please contact <a href="mailto:contact@activeeon.com">contact@activeeon.com</a>.</p>
+</div>
+<script>
+    document.getElementById('currentYear').innerHTML = new Date().getFullYear();
+</script>
+<script>
+if(window.location.hostname.includes("doc.activeeon.com")){
+    document.querySelectorAll('.studioUrl').forEach(function(element){
+        element.href="https://try.activeeon.com/studio";
+    });
+    document.querySelectorAll('.schedulerUrl').forEach(function(element){
+        element.href="https://try.activeeon.com/scheduler";
+    });
+    document.querySelectorAll('.rmUrl').forEach(function(element){
+        element.href="https://try.activeeon.com/rm";
+    });
+    document.querySelectorAll('.automationDashboardUrl').forEach(function(element){
+        element.href="https://try.activeeon.com/automation-dashboard/#/portal/service-automation";
+    });
+    document.querySelectorAll('.restUrl').forEach(function(element){
+        element.href="https://try.activeeon.com/rest";
+    });
+    document.querySelectorAll('.schedulerGraphQLUrl').forEach(function(element){
+        element.href="https://try.activeeon.com/scheduling-api/v1/graphiql";
+    });
+    document.querySelectorAll('.catalogRestUrl').forEach(function(element){
+        element.href="https://try.activeeon.com/catalog";
+    });
+    document.querySelectorAll('.catalogGraphQLUrl').forEach(function(element){
+        element.href="https://try.activeeon.com/catalog/graphiql";
+    });
+}
+</script>
+<style>
+  #tocbot a.toc-link.node-name--H1{ font-style: italic }
+  @media screen{
+    #tocbot > ul.toc-list{ margin-bottom: 0.5em; margin-left: 0.125em }
+    #tocbot ul.sectlevel0, #tocbot a.toc-link.node-name--H1 + ul{
+      padding-left: 0 }
+    #tocbot a.toc-link{ height:100% }
+    .is-collapsible{ max-height:3000px; overflow:hidden; }
+    .is-collapsed{ max-height:0 }
+    .is-active-link{ font-weight:700 }
+  }
+  @media print{
+    #tocbot a.toc-link.node-name--H4{ display:none }
+  }
+</style>
+<script src="../tocbot/tocbot.js"></script>
+<script>
+    /* Tocbot dynamic TOC, works with tocbot 3.0.2+ */
+    var oldtoc = document.getElementById('toctitle').nextElementSibling;
+    var newtoc = document.createElement('div');
+    newtoc.setAttribute('id', 'tocbot');
+    newtoc.setAttribute('class', 'js-toc');
+    oldtoc.parentNode.replaceChild(newtoc, oldtoc);
+    /* explanation of parameters
+      orderedList : false to avoid extra numbers added in the toc
+      includeHtml : true to allow direct links (redirect between documentations in the all-documentation-link section)
+      hasInnerContainers : true (scrolling between chapters is not accurate otherwise)
+      collapseDepth : 3 (always collapse 3 levels)
+    */
+    tocbot.init({ tocSelector: '.js-toc', contentSelector: '.js-toc-content',
+        headingSelector: 'h1, h2, h3, h4, h5', collapseDepth: 3,
+        smoothScroll: true, orderedList: false, includeHtml: true, hasInnerContainers: true });
+    //tocbot.refresh();
+    var handleTocOnResize = function() {
+        var width = window.innerWidth
+                    || document.documentElement.clientWidth
+                    || document.body.clientWidth;
+        if (width < 768) {
+            tocbot.refresh({ tocSelector: '.js-toc', contentSelector: '.js-toc-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 3,
+                activeLinkClass: 'ignoreactive',
+                throttleTimeout: 1000,
+                orderedList: false,
+                smoothScroll: true, includeHtml: true, hasInnerContainers: true });
+        }
+        else {
+            tocbot.refresh({ contentSelector: '#content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                orderedList: false, collapseDepth: 3,
+                smoothScroll: true, includeHtml: true, hasInnerContainers: true });
+        }
+    };
+    window.addEventListener('resize', handleTocOnResize);
+    handleTocOnResize();
+</script>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version unspecified<br>
+Last updated 2024-03-10 02:59:42 UTC
+</div>
+</div>
+<script src="../highlight/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+</body>
+</html>
