@@ -18,22 +18,25 @@ The ProActive Python Client enables seamless interaction with the ProActive Sche
 ### Prerequisites
 
 - Python version 3.5 or later is required.
+- Java 8 SDK
 
 ### Installation
 
 You can easily install the ProActive Python Client using pip:
 
 ```bash
-pip install proactive
+pip install --upgrade proactive
 ```
 
 For access to the latest features and improvements, install the pre-release version:
 
 ```bash
-pip install --pre proactive
+pip install --upgrade --pre proactive
 ```
 
 ### Building from Source
+
+#### Linux or Mac
 
 To build and install the package from source:
 
@@ -45,6 +48,17 @@ gradlew clean build
 
 # Install the built package
 pip install dist/proactive-XXX.zip  # Replace XXX with the actual version
+```
+
+#### Windows
+
+```bat
+REM Build the package
+build.bat CLEAN_BUILD
+
+REM Install the built package
+REM Replace XXX with the actual version
+pip install dist\proactive-XXX.zip
 ```
 
 ### Running Tests

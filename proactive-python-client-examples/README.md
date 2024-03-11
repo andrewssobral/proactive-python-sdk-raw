@@ -8,6 +8,8 @@ Before running the examples, you may want to create a virtual environment to avo
 
 ### Creating a Virtual Environment (Optional)
 
+#### On Mac and Linux
+
 To create a virtual environment, run the following commands:
 
 ```bash
@@ -15,23 +17,58 @@ python3 -m venv env
 source env/bin/activate
 ```
 
+You can also use the provided `Makefile`:
+```bash
+make virtualenv
+```
+
+#### On Windows
+
+On Windows, you can use the provided `build.bat` script to create and manage the virtual environment:
+
+```cmd
+build.bat VIRTUAL_ENV
+```
+
+This command will create a new virtual environment or use the existing one based on your input.
+
 ### Upgrading Required Packages
 
 Once the virtual environment is activated, upgrade `pip`, `setuptools` and `python-dotenv` to the latest versions:
 
+#### On Mac and Linux
+
 ```bash
 python3 -m pip install --upgrade pip setuptools python-dotenv
 ```
+
+If you have used the provided `Makefile`, it automatically upgrades these packages when setting up the virtual environment.
+
+#### On Windows
+
+The `build.bat` script automatically upgrades these packages when setting up the virtual environment.
 
 ## Installing the Proactive Python SDK
 
 To install the latest pre-release or development version of the Proactive Python SDK, which includes the most recent features and fixes, use the following command:
 
 ```bash
-python3 -m pip install --pre proactive
+python3 -m pip install --upgrade --pre proactive
 ```
 
 The `--pre` flag is included to allow pip to find and install pre-releases.
+
+#### Using Makefile (For Mac and Linux)
+
+```bash
+make install_latest
+```
+
+#### On Windows
+
+```cmd
+build.bat INSTALL_LATEST
+```
 
 ## Running the Examples
 
@@ -40,6 +77,24 @@ To test if the installation was successful and see the proactive client in actio
 ```bash
 python3 demo_basic.py
 ```
+
+#### Using Makefile (For Mac and Linux)
+
+For instance, to run all the provided example scripts:
+
+```bash
+make run_all
+```
+
+#### On Windows
+
+To run all the provided example scripts:
+
+```cmd
+build.bat RUN_ALL
+```
+
+This command will execute all `.py` files in the current directory.
 
 ## Examples Description
 
@@ -56,6 +111,8 @@ python3 demo_basic.py
 - `demo_selectionscript.py`: This script explains how to create a job and a task, and ensures that the task is executed only on Linux machines using a selection script.
 
 - `demo_impl_url.py`: Illustrates how to set up a machine learning task (Logistic Regression) using a script sourced from a URL, showing the ProActive Scheduler's capability to incorporate external scripts.
+
+- `demo_job_status.py`: Demonstrates the process of job submission and monitoring with the ProActive Python SDK. It walks through creating a job, adding a Python task, submitting the job to the ProActive Scheduler, and monitoring its status until completion, concluding with the retrieval and display of the job's output.
 
 - `demo_ai_workflow.py`: Sets up and executes a machine learning workflow for the Iris dataset using the ProActive Scheduler. It demonstrates how to create a job, add tasks, and manage their execution sequence.
 
