@@ -6,22 +6,22 @@
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title ng-bind-template="{{projectTitle}}"></title>
-<link type="text/css" rel="stylesheet" href="css/normalize.css" />
-<link type="text/css" rel="stylesheet" href="lib/angular-ui/css/angular-ui.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-combined.min.css" />
-<link type="text/css" rel="stylesheet" href="css/fonts.css" />
-<link type="text/css" rel="stylesheet" href="css/style.css" />
-<link type="text/css" rel="stylesheet" href="css/introstyle.css" />
-<link type="text/css" rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
-<script type="text/javascript" src="lib/jquery/js/jquery.js"></script>
-<script type="text/javascript" src="lib/angular/js/angular.js"></script>
-<script type="text/javascript" src="lib/angular-bootstrap/js/ui-bootstrap.js"></script>
-<script type="text/javascript" src="lib/angular-sanitize/js/angular-sanitize.js"></script>
-<script type="text/javascript" src="lib/angular-ui/js/angular-ui.js"></script>
-<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="lib/underscore/js/underscore.js"></script>
-<script type="text/javascript" src="lib/lunr/js/lunr.js"></script>
-<script type="text/javascript" src="js/output.js"></script>
+<link type="text/css" rel="stylesheet" href="https://trydev2.activeeon.com/doc/rest/css/normalize.css" />
+<link type="text/css" rel="stylesheet" href="https://trydev2.activeeon.com/doc/rest/lib/angular-ui/css/angular-ui.css" />
+<link type="text/css" rel="stylesheet" href="https://trydev2.activeeon.com/doc/rest/css/bootstrap-combined.min.css" />
+<link type="text/css" rel="stylesheet" href="https://trydev2.activeeon.com/doc/rest/css/fonts.css" />
+<link type="text/css" rel="stylesheet" href="https://trydev2.activeeon.com/doc/rest/css/style.css" />
+<link type="text/css" rel="stylesheet" href="https://trydev2.activeeon.com/doc/rest/css/introstyle.css" />
+<link type="text/css" rel="stylesheet" href="https://trydev2.activeeon.com/doc/rest/lib/font-awesome/css/font-awesome.css" />
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/lib/jquery/js/jquery.js"></script>
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/lib/angular/js/angular.js"></script>
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/lib/angular-bootstrap/js/ui-bootstrap.js"></script>
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/lib/angular-sanitize/js/angular-sanitize.js"></script>
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/lib/angular-ui/js/angular-ui.js"></script>
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/lib/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/lib/underscore/js/underscore.js"></script>
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/lib/lunr/js/lunr.js"></script>
+<script type="text/javascript" src="https://trydev2.activeeon.com/doc/rest/js/output.js"></script>
     <!--[if IE 7]>
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome-ie7.min.css">
     <![endif]-->
@@ -225,7 +225,7 @@
     </ul>
 </script>
 <div ng-hide="true" id="loading">
-    <img alt="Loading..." src="img/ajax-loader-mini.gif"/> Loading ...
+    <img alt="Loading..." src="https://trydev2.activeeon.com/doc/rest/img/ajax-loader-mini.gif"/> Loading ...
 </div>
 <script>
     if (errorMessage !== 'Supported') {
@@ -258,7 +258,7 @@
                 </div>
                 <div ng-show="navigationView == 'search'">
                     <div ng-show="!isSearchIndexCreated">
-                        <img alt="Building search index" src="img/ajax-loader-mini.gif"/> Building search index...
+                        <img alt="Building search index" src="https://trydev2.activeeon.com/doc/rest/img/ajax-loader-mini.gif"/> Building search index...
                     </div>
                     <div ng-show="isSearchIndexCreated">
                         <div id="searchform">
@@ -356,7 +356,7 @@
                             </ul>
                             <div class="pull-right" style="margin-right: 20px;"
                                  ng-if="licenseType == 'FREE' || !hideLogoOnTop">
-                                <a href="http://www.miredot.com" target="_blank"><img src="img/miredot_mini_title.png"></a>
+                                <a href="http://www.miredot.com" target="_blank"><img src="https://trydev2.activeeon.com/doc/rest/img/miredot_mini_title.png"></a>
                                 <i class="icon-exclamation-sign failedIcon"
                                    set-if="!validLicense && !!licenseErrorMessage" set-title="licenseErrorMessage"></i>
                             </div>
@@ -725,7 +725,7 @@
                 <div style="padding-top: 10px; padding-bottom: 10px; text-align: center;">
                     <p class="muted" style="font-size: 12px; margin: 0;">
                         <span set-text="dateOfGeneration"></span> - REST documentation generated by
-                        <a href="http://www.miredot.com" target="_blank"><img src="img/miredot_mini.png"
+                        <a href="http://www.miredot.com" target="_blank"><img src="https://trydev2.activeeon.com/doc/rest/img/miredot_mini.png"
                                                                               style="vertical-align: text-bottom;"></a>
                         version {{miredotVersion}}{{versionCheckResult}}
                     </p>
